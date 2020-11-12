@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TempController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+{# Comment #}
+{% for message in app.flashes('notice') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name | upper }}! tut</h1>
+    <p>Notifications: {{ notifications | length }}</p>
+    <p>Link: <a href="{{ path('temp_test', {id: 5}) }}">Homepage</a><br></p>
+    <p>Image: <img src="{{ asset('https://doschzharf1i9.cloudfront.net/personal_assets/sln/57x57/9dcfe3b7-4ac7-4fd7-bdaa-d690f48b40da.png') }}" alt="Symfony!"/></p>
+    <p>Request method: {{ app.request.method }}</p>
+    <p>{{ dump(notifications) }}</p>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ '/Applications/MAMP/htdocs/symfony_project/src/Controller/TempController.php'|file_link(0) }}">src/Controller/TempController.php</a></code></li>
+        <li>Your template at <code><a href="{{ '/Applications/MAMP/htdocs/symfony_project/templates/temp/index.html.twig'|file_link(0) }}">templates/temp/index.html.twig</a></code></li>
+    </ul>
+</div>
+{% endblock %}
